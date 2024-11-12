@@ -4,6 +4,8 @@
 #include <string>
 #include <iostream>
 #include "Form.hpp"
+class Form;
+
 class Bureaucrat 
 {
 public:

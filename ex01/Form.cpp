@@ -8,14 +8,16 @@ Form::Form(std::string const name, int const nb_a, int const nb_b) : name(name),
 {
 	this->sign = false;
 }
-From::Form(const Form &other)
+Form::Form(const Form &other) : name(other.name), grade_exec(other.grade_exec), grade_sign(other.grade_sign), sign(other.sign)
 {
-	*this = other;
 }
-Form::&Form operator=(const Form &other)
+
+Form &Form::operator=(const Form &other)
 {
 	if (this != &other)
+	{
 		this->sign = other.sign;
+	}
 	return *this;
 }
 Form::~Form()
@@ -65,7 +67,7 @@ std::ostream &operator<<(std::ostream &os, const Form &form)
 
 void Form::beSigned(Bureaucrat &bob)
 {
-	if (this->grade_sign >= bob.grade)
+	if (this->grade_sign >= bob.getGrade())
 	{
 		this->sign = true;
 		std::cout << bob.getName() << "signed" << Form::getName() << std::endl;

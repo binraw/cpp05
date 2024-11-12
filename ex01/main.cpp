@@ -4,12 +4,13 @@
 int main(void)
 {
 	Bureaucrat a("Bart", 23);
-	std::cout << a << std::endl;
-	a.incrementGrade();
-	std::cout << a << std::endl;
-	a.decrementGrade();
-	std::cout << a << std::endl;
+	Form paper1("CONFIDENTIEL", 1, 1);
+	Form paper2("torchon", 150, 150);
 
+
+	a.signForm(paper1);
+	a.signForm(paper2);
+	a.signForm(paper2);
 	try 
 	{
 		Bureaucrat	bob("poppi", 4242);

@@ -12,7 +12,9 @@ Bureaucrat::Bureaucrat(std::string name, int nb) : name(name)
 	else if (nb > 150)
 		throw GradeTooLowException();
 	else
+	{
 		this->grade = nb;
+	}
 }
 
 
@@ -79,11 +81,11 @@ void Bureaucrat::signForm(Form &paper)
 	if (this->grade <= paper.getGradeSign() && paper.getStatus() == false)
 	{
 		paper.changeStatus();
-		std::cout << getName() << "signed" << paper.getName() << std::endl;
+		std::cout << getName() << " signed " << paper.getName() << std::endl;
 	}
 	else if (paper.getStatus() == true)
-		std::cout << getName() << " couldn't sign " << paper.getName() << "because is already signed." << std::endl;
+		std::cout << getName() << " couldn't sign " << paper.getName() << " because is already signed." << std::endl;
 	else
-		std::cout << getName() << " couldn't sign " << paper.getName() << "because form too high." << std::endl;
+		std::cout << getName() << " couldn't sign " << paper.getName() << " because form too high." << std::endl;
 }
 
