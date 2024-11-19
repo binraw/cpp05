@@ -1,11 +1,13 @@
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm() : name("default_shrubbery"), grade_sign(25), grade_exec(5)
+PresidentialPardonForm::PresidentialPardonForm() : AForm("default", 25, 5)
 {
+     std::cout << "Default constructor Presidential Pardon Form called" << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string n) : grade_sign(25), grade_exec(5)
+PresidentialPardonForm::PresidentialPardonForm(std::string n) : AForm(n, 25, 5)
 {
+    std::cout << "Constructor Presidential Pardon Form called" << std::endl;
 }
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other)
 {
@@ -18,4 +20,17 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 
 PresidentialPardonForm::~PresidentialPardonForm()
 {
+    std::cout << "Destructor Presidential Pardon Form called" << std::endl;
+}
+
+void PresidentialPardonForm::execute(Bureaucrat &executor)const
+{
+    if (executor.getGrade() > this->grade_exec)
+	{
+	    throw Bureaucrat::GradeTooLowException();	
+	}
+	else if (this->sign)
+        throw AForm::FormSignTrue();
+    else
+        std::cout << getName() << "has been pardoned by Zaphod Beeblebrox." << std::endl;
 }

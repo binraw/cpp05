@@ -1,8 +1,8 @@
 NAME = Bureaucrat
 
 
-SRCS_FILE = Bureaucrat.cpp main.cpp AForm.cpp
-HEADER_FILE = Bureaucrat.hpp AFrom.hpp
+SRCS_FILE = Bureaucrat.cpp main.cpp AForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
+HEADER_FILE = Bureaucrat.hpp AFrom.hpp PresidentialPardonForm.hpp RobotomyRequestForm.hpp ShrubberyCreationForm.hpp
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98

@@ -1,12 +1,13 @@
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : grade_sign(145), grade_exec(137)
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("default", 145, 137)
 {
+    std::cout << "Default constructor Shruberry called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : name(target), grade_sign(145), grade_exec(137)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm(target, 145, 137)
 {
-
+    std::cout << "Constructor Shruberry called" << std::endl;
 }
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other)
 {
@@ -19,4 +20,27 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
+    std::cout << "Destructor Shruberry called" << std::endl;
+}
+
+void ShrubberyCreationForm::execute(Bureaucrat &executor)const
+{
+    if (executor.getGrade() > this->grade_exec)
+	{
+	    throw Bureaucrat::GradeTooLowException();	
+	}
+	else if (this->sign)
+        throw AForm::FormSignTrue();
+    else 
+    {
+        std::ofstream file ( this->name + "_shrubbery");
+        if(!file)
+            std::cerr << "Error file" << std::endl;
+        file << "    0    " << std::endl;
+        file << "   ***   " << std::endl;
+        file << "  *****  " << std::endl;
+        file << " ******* " << std::endl;
+        file << "    1    " << std::endl;
+        file.close();
+    }
 }

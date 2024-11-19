@@ -10,11 +10,12 @@
 class RobotomyRequestForm : public AForm
 {
 private:
-    /* data */
+  
 public:
     RobotomyRequestForm();
     RobotomyRequestForm(std::string target);
     RobotomyRequestForm(const RobotomyRequestForm &other);
+    void execute(Bureaucrat &executor)const;
     RobotomyRequestForm &operator=(const RobotomyRequestForm &other);
     ~RobotomyRequestForm();
 };
