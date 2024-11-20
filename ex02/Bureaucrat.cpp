@@ -89,3 +89,15 @@ void Bureaucrat::signAForm(AForm &paper)
 		std::cout << getName() << " couldn't sign " << paper.getName() << " because AForm too high." << std::endl;
 }
 
+void	Bureaucrat::executeForm(const Form& form) const {
+	try {
+		form.execute(*this);
+		std::cout << name << " executes " << form.getName() << std::endl;
+	}
+	catch (std::exception& e) {
+		std::cout	<< name << " cannot execute " << form.getName() << " because "
+					<< e.what() << std::endl;
+	}
+}
+
+
