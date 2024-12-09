@@ -16,8 +16,8 @@ public:
 	bool getStatus(void) const;
 	void beSigned(Bureaucrat &bob);
 	void changeStatus(void);
-	void execute(Bureaucrat const &executor);
-	~AForm();
+	virtual	void execute(Bureaucrat const &executor) = 0;
+	virtual ~AForm();
 class GradeTooLowException: public std::exception
 	{
 		virtual const char*	what() const throw();

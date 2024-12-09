@@ -1,4 +1,4 @@
-#include "Intern.hpp"
+#include "../headers/Intern.hpp"
 
 Intern::Intern()
 {
@@ -26,24 +26,24 @@ Intern::~Intern()
     
 // }
 
-void Intern::makeFormPresidential(std::string target)
+static AForm *makeFormPresidential(std::string target)
 {
-    return new PresidentialPardonForm(target);
+    return (new PresidentialPardonForm(target));
 }
 
-void Intern::makeFormRobotomy(std::string target)
+static AForm *makeFormRobotomy(std::string target)
 {
-    return new RobotomyRequestForm(target);
+    return (new RobotomyRequestForm(target));
 }
 
-void Intern::makeFormShruberry(std::string target)
+static AForm *makeFormShruberry(std::string target)
 {
-    return new ShrubberyCreationForm(target);
+    return (new ShrubberyCreationForm(target));
 }
 
-Form *Intern::makeForm(std::string name_form, std::string target_form)
+AForm *Intern::makeForm(std::string name_form, std::string target_form)
 {
-    Form *(*all_forms[])(const std::string target) = {&makeFormPresidential, &makeFormRobotomy, &makeFormShruberry};
+    AForm *(*all_forms[])(const std::string target) = {&makeFormPresidential, &makeFormRobotomy, &makeFormShruberry};
     std::string names[] = {"PresidentialPardonForm", "RobotomyRequestForm", "ShruberryCreationForm"};
     for (int i = 0; i < 3; i++)
     {
@@ -54,4 +54,6 @@ Form *Intern::makeForm(std::string name_form, std::string target_form)
 	    }
     }
     std::cout << "Intern creates" << name_form << std::endl;
+	return (NULL);
 }
+

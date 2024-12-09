@@ -15,10 +15,8 @@ public:
     Intern();
     Intern(const Intern &other);
     Intern &operator=(const Intern &other);
-    void makeForm(std::string name, std::string target);
-    void makeFormPresidential(std::string target);
-    void makeFormRobotomy(std::string target);
-    void makeFormShruberry(std::string target);
+    AForm *makeForm(std::string name, std::string target);
+
     ~Intern();
 };
 

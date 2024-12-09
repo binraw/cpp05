@@ -1,4 +1,4 @@
-#include "Bureaucrat.hpp"
+#include "../headers/Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat() :name("default bureaucrat")
 {
@@ -89,7 +89,7 @@ void Bureaucrat::signAForm(AForm &paper)
 		std::cout << getName() << " couldn't sign " << paper.getName() << " because AForm too high." << std::endl;
 }
 
-void	Bureaucrat::executeForm(const Form& form) const {
+void	Bureaucrat::executeForm(AForm& form) const {
 	try {
 		form.execute(*this);
 		std::cout << name << " executes " << form.getName() << std::endl;

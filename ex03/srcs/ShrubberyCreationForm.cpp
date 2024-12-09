@@ -1,11 +1,11 @@
-#include "ShrubberyCreationForm.hpp"
+#include "../headers/ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("default", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("default", 145, 137), _target("default")
 {
     std::cout << "Default constructor Shruberry called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm(target, 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm(target, 145, 137), _target(target)
 {
     std::cout << "Constructor Shruberry called" << std::endl;
 }
@@ -23,7 +23,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
     std::cout << "Destructor Shruberry called" << std::endl;
 }
 
-void ShrubberyCreationForm::execute(Bureaucrat &executor)const
+void ShrubberyCreationForm::execute(Bureaucrat const &executor)
 {
     if (executor.getGrade() > this->grade_exec)
 	{
