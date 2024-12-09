@@ -1,4 +1,4 @@
-#include "AForm.hpp"
+#include "../headers/AForm.hpp"
 
 AForm::AForm() : name("paperwork"), grade_exec(150), grade_sign(150) 
 {

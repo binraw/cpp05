@@ -1,4 +1,4 @@
-#include "RobotomyRequestForm.hpp"
+#include "../headers/RobotomyRequestForm.hpp"
 
 static int robotomied_success = 0;
 RobotomyRequestForm::RobotomyRequestForm(): AForm("default", 72, 45)
@@ -31,7 +31,7 @@ RobotomyRequestForm::~RobotomyRequestForm()
     std::cout << "Destructor Robot called" << std::endl;
 }
 
-void RobotomyRequestForm::execute(Bureaucrat &executor)const
+void RobotomyRequestForm::execute(Bureaucrat const &executor)
 {
     if (executor.getGrade() > this->grade_exec)
 	{

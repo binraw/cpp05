@@ -1,4 +1,4 @@
-#include "PresidentialPardonForm.hpp"
+#include "../headers/PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm() : AForm("default", 25, 5)
 {
@@ -23,7 +23,7 @@ PresidentialPardonForm::~PresidentialPardonForm()
     std::cout << "Destructor Presidential Pardon Form called" << std::endl;
 }
 
-void PresidentialPardonForm::execute(Bureaucrat &executor)const
+void PresidentialPardonForm::execute(Bureaucrat const &executor)
 {
     if (executor.getGrade() > this->grade_exec)
 	{
