@@ -21,10 +21,7 @@ Intern::~Intern()
     std::cout << "Destructor Inter called" << std::endl;
 }
 
-// void Intern::makeForm(std::string name, std::string target)
-// {
-    
-// }
+
 
 static AForm *makeFormPresidential(std::string target)
 {
@@ -36,15 +33,15 @@ static AForm *makeFormRobotomy(std::string target)
     return (new RobotomyRequestForm(target));
 }
 
-static AForm *makeFormShruberry(std::string target)
+static AForm *makeFormShrubbery(std::string target)
 {
     return (new ShrubberyCreationForm(target));
 }
 
 AForm *Intern::makeForm(std::string name_form, std::string target_form)
 {
-    AForm *(*all_forms[])(const std::string target) = {&makeFormPresidential, &makeFormRobotomy, &makeFormShruberry};
-    std::string names[] = {"PresidentialPardonForm", "RobotomyRequestForm", "ShruberryCreationForm"};
+    AForm *(*all_forms[])(const std::string target) = {&makeFormPresidential, &makeFormRobotomy, &makeFormShrubbery};
+    std::string names[] = {"presidential", "robotomy request", "shrubbery"};
     for (int i = 0; i < 3; i++)
     {
 	    if (name_form == names[i])
@@ -53,7 +50,7 @@ AForm *Intern::makeForm(std::string name_form, std::string target_form)
 		    return (all_forms[i](target_form));
 	    }
     }
-    std::cout << "Intern creates" << name_form << std::endl;
+    std::cout << "Intern creates " << name_form << std::endl;
 	return (NULL);
 }
 

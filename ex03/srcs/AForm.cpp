@@ -17,6 +17,7 @@ AForm &AForm::operator=(const AForm &other)
 	if (this != &other)
 	{
 		this->sign = other.sign;
+	
 	}
 	return *this;
 }

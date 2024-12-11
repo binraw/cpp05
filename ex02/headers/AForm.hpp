@@ -4,7 +4,7 @@
 
 #include <string>
 #include <iostream>
-#include "Bureaucrat.hpp"
+#include "./Bureaucrat.hpp"
 class Bureaucrat; 
 class AForm {
 public:

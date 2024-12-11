@@ -37,11 +37,11 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor)
 	{
 	    throw Bureaucrat::GradeTooLowException();	
 	}
-	else if (this->sign)
+    else if (this->sign)
         throw AForm::FormSignTrue();
     else if (robotomied_success++ % 2)
 		std::cout << "BRRRRRRRRRRRRRR\n" <<  " was robotomized" << std::endl;
-	else
+    else
 		std::cout << "Robotomy failed" << std::endl;
 	
 }

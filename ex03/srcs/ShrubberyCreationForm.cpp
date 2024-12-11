@@ -29,7 +29,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor)
 	{
 	    throw Bureaucrat::GradeTooLowException();	
 	}
-	else if (this->sign)
+    else if (this->sign)
         throw AForm::FormSignTrue();
     else 
     {

@@ -4,8 +4,6 @@ static int robotomied_success = 0;
 RobotomyRequestForm::RobotomyRequestForm(): AForm("default", 72, 45)
 {
     std::cout << "Default constructor Robot called" << std::endl;
-//     std::cout << "* Makes some drilling noises * " << getName() << " has been robotomized successfully" << std::endl; 
-//     std::cout << "* Makes some drilling noises * " << getName() << " the robotomy failed." << std::endl; 
 }
 
 
@@ -37,11 +35,11 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor)
 	{
 	    throw Bureaucrat::GradeTooLowException();	
 	}
-	else if (this->sign)
+    else if (this->sign)
         throw AForm::FormSignTrue();
     else if (robotomied_success++ % 2)
 		std::cout << "BRRRRRRRRRRRRRR\n" <<  " was robotomized" << std::endl;
-	else
+    else
 		std::cout << "Robotomy failed" << std::endl;
 	
 }
