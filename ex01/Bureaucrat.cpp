@@ -12,9 +12,7 @@ Bureaucrat::Bureaucrat(std::string name, int nb) : name(name)
 	else if (nb > 150)
 		throw GradeTooLowException();
 	else
-	{
 		this->grade = nb;
-	}
 }
 
 
@@ -26,9 +24,7 @@ Bureaucrat::Bureaucrat(Bureaucrat const &other)
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 {
 	if (this != &other)
-	{
 		this->grade = other.grade;
-	}
 	return *this;
 }
 

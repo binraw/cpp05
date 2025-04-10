@@ -1,11 +1,11 @@
 #include "../headers/Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() :name("default bureaucrat")
+Bureaucrat::Bureaucrat() : _name("default bureaucrat")
 {
-	this->grade = 75;
+	this->_grade = 75;
 }
 
-Bureaucrat::Bureaucrat(std::string name, int nb) : name(name)
+Bureaucrat::Bureaucrat(std::string name, int nb) : _name(name)
 {
 	if (nb < 1)
 		throw GradeTooHighException();
@@ -13,7 +13,7 @@ Bureaucrat::Bureaucrat(std::string name, int nb) : name(name)
 		throw GradeTooLowException();
 	else
 	{
-		this->grade = nb;
+		this->_grade = nb;
 	}
 }
 
@@ -27,7 +27,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 {
 	if (this != &other)
 	{
-		this->grade = other.grade;
+		this->_grade = other._grade;
 	}
 	return *this;
 }
@@ -37,27 +37,27 @@ Bureaucrat::~Bureaucrat() {
 
 std::string Bureaucrat::getName(void) const
 {
-	return this->name;
+	return this->_name;
 }
 
 int Bureaucrat::getGrade(void) const
 {
-	return this->grade;
+	return this->_grade;
 }
 
 void Bureaucrat::incrementGrade(void)
 {
-	if (this->grade - 1 < 1)
+	if (this->_grade - 1 < 1)
 		throw GradeTooHighException();
 	else
-		this->grade -= 1;
+		this->_grade -= 1;
 }
 void Bureaucrat::decrementGrade(void)
 {
-	if (this->grade + 1 > 150)
+	if (this->_grade + 1 > 150)
 		throw GradeTooLowException();
 	else
-		this->grade += 1;
+		this->_grade += 1;
 }
 
 const char*	Bureaucrat::GradeTooLowException::what() const throw() 
@@ -78,7 +78,7 @@ std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureau)
 
 void Bureaucrat::signAForm(AForm &paper)
 {
-	if (this->grade <= paper.getGradeSign() && paper.getStatus() == false)
+	if (this->_grade <= paper.getGradeSign() && paper.getStatus() == false)
 	{
 		paper.changeStatus();
 		std::cout << getName() << " signed " << paper.getName() << std::endl;
@@ -94,11 +94,11 @@ void	Bureaucrat::executeForm(AForm& form) const
 	try
 	{
 		form.execute(*this);
-		std::cout << name << " executes " << form.getName() << std::endl;
+		std::cout << _name << " executes " << form.getTarget() << std::endl;
 	}
 	catch (std::exception& e)
 	{
-		std::cout << name << " cannot execute " << form.getName() << " because "
+		std::cout << _name << " cannot execute " << form.getTarget() << " because "
 					<< e.what() << std::endl;
 	}
 }

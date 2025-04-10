@@ -2,6 +2,7 @@
 #include "../headers/PresidentialPardonForm.hpp"
 #include "../headers/RobotomyRequestForm.hpp"
 #include "../headers/ShrubberyCreationForm.hpp"
+#include "../headers/colors.hpp"
 #include <iostream>
 
 int main(void)
@@ -9,7 +10,7 @@ int main(void)
 	Bureaucrat a("Bart", 23);
 
 
-	std::cout << "TEST SUCCESS" << std::endl;
+	std::cout << GREEN << "TEST SUCCESS -->>" << RESET << std::endl;
 	try
 	{
 		ShrubberyCreationForm sapin("Noel");
@@ -39,7 +40,7 @@ int main(void)
 		std::cerr << e.what() << '\n';
 	}
 
-	std::cout << "TEST FAILED" << std::endl; 
+	std::cout << RED << "TEST FAILED -->>" << RESET << std::endl;
 
 
 	Bureaucrat c("Marc", 150);

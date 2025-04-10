@@ -12,12 +12,14 @@ class RobotomyRequestForm : public AForm
 private:
   
 public:
+/*----------- CONSTRUCTOR / DESTRUCTOR --------------*/
     RobotomyRequestForm();
     RobotomyRequestForm(std::string target);
     RobotomyRequestForm(const RobotomyRequestForm &other);
-    void execute(Bureaucrat const &executor);
     RobotomyRequestForm &operator=(const RobotomyRequestForm &other);
     ~RobotomyRequestForm();
+/*-------------- FONCTIONS --------------------------*/
+    void execute(Bureaucrat const &executor);
 };
 
 

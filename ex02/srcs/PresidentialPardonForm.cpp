@@ -1,13 +1,13 @@
 #include "../headers/PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm() : AForm("default", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", 25, 5, "default_target")
 {
      std::cout << "Default constructor Presidential Pardon Form called" << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string n) : AForm(n, 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(std::string t) : AForm("PresidentialPardonForm", 25, 5, t)
 {
-    std::cout << "Constructor Presidential Pardon Form called" << std::endl;
+    std::cout << getTarget() << " Constructor Presidential Pardon Form called" << std::endl;
 }
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other)
 {
@@ -20,15 +20,15 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 
 PresidentialPardonForm::~PresidentialPardonForm()
 {
-    std::cout << "Destructor Presidential Pardon Form called" << std::endl;
+    std::cout << getTarget() << " Destructor Presidential Pardon Form called" << std::endl;
 }
 
 void PresidentialPardonForm::execute(Bureaucrat const &executor)
 {
-    if (executor.getGrade() > this->grade_exec)
+    if (executor.getGrade() > this->_grade_exec)
 	    throw Bureaucrat::GradeTooLowException();	
-    else if (this->sign)
+    else if (this->_sign)
         throw AForm::FormSignTrue();
     else
-        std::cout << getName() << "has been pardoned by Zaphod Beeblebrox." << std::endl;
+        std::cout << getTarget() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
