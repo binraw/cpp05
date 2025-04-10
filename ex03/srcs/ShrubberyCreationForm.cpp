@@ -1,39 +1,46 @@
 #include "../headers/ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("default", 145, 137), _target("default")
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137, "default_target")
 {
     std::cout << "Default constructor Shruberry called" << std::endl;
 }
+/*----------------------------------------------------*/
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm(target, 145, 137), _target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("ShrubberyCreationForm", 145, 137, target)
 {
-    std::cout << "Constructor Shruberry called" << std::endl;
+    std::cout << getTarget() << " Constructor Shruberry called" << std::endl;
 }
+/*----------------------------------------------------*/
+
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other)
 {
     *this = other;
 }
+/*----------------------------------------------------*/
+
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other)
 {
     return *this;
 }
+/*----------------------------------------------------*/
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-    std::cout << "Destructor Shruberry called" << std::endl;
+    std::cout << getTarget() << " Destructor Shruberry called" << std::endl;
 }
 
+/*-------------- FONCTIONS --------------------------*/
 void ShrubberyCreationForm::execute(Bureaucrat const &executor)
 {
-    if (executor.getGrade() > this->grade_exec)
+    if (executor.getGrade() > this->_grade_exec)
 	{
 	    throw Bureaucrat::GradeTooLowException();	
 	}
-    else if (this->sign)
+	else if (this->_sign)
         throw AForm::FormSignTrue();
     else 
     {
-        std::ofstream file ( this->name + "_shrubbery");
+        std::ofstream file ( this->_target + "_shrubbery");
         if(!file)
             std::cerr << "Error file" << std::endl;
         file << "    0    " << std::endl;

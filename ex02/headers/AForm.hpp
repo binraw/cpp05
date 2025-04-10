@@ -25,17 +25,6 @@ public:
 	void changeStatus(void);
 	virtual	void execute(Bureaucrat const &executor) = 0;
 
-protected:
-/*______________ PRIVATE VALUES______________________*/
-	std::string const _name;
-	std::string const _target;
-	int const _grade_exec;
-	int const _grade_sign;
-	bool _sign;
-/*________________ PRIVATE CONSTRUCTOR _______________*/
-	AForm();
-	AForm(std::string const name, int const nb_a, int const nb_b, std::string const target); 
-
 /*------------------ EXCEPTIONS-----------------------*/
 class GradeTooLowException: public std::exception
 	{
@@ -50,6 +39,17 @@ class FormSignTrue: public std::exception
 {
 	virtual const char* what() const throw();
 };
+protected:
+/*______________ PRIVATE VALUES______________________*/
+	std::string const _name;
+	std::string const _target;
+	int const _grade_exec;
+	int const _grade_sign;
+	bool _sign;
+/*________________ PRIVATE CONSTRUCTOR _______________*/
+	AForm();
+	AForm(std::string const name, int const nb_a, int const nb_b, std::string const target); 
+
 
 };
 

@@ -1,4 +1,5 @@
 #include "../headers/PresidentialPardonForm.hpp"
+#include "../headers/colors.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", 25, 5, "default_target")
 {
@@ -30,5 +31,5 @@ void PresidentialPardonForm::execute(Bureaucrat const &executor)
     else if (this->_sign)
         throw AForm::FormSignTrue();
     else
-        std::cout << getTarget() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+        std::cout << BRIGHT_GREEN << getTarget() << " has been pardoned by Zaphod Beeblebrox." << RESET << std::endl;
 }

@@ -1,4 +1,5 @@
 #include "../headers/RobotomyRequestForm.hpp"
+#include "../headers/colors.hpp"
 
 static int robotomied_success = 0;
 RobotomyRequestForm::RobotomyRequestForm(): AForm("RobotomyRequestForm", 72, 45, "RobotomyRequestForm_default")
@@ -38,8 +39,8 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor)
     else if (this->_sign)
         throw AForm::FormSignTrue();
     else if (robotomied_success++ % 2)
-		std::cout << getTarget() << " BRRRRRRRRRRRRRR\n" <<  " was robotomized" << std::endl;
+		std::cout << BRIGHT_GREEN << getTarget() << " BRRRRRRRRRRRRRR " <<  " was robotomized" << RESET << std::endl;
     else
-		std::cout << getTarget() << " Robotomy failed" << std::endl;
+		std::cout << BRIGHT_GREEN << getTarget() << " Robotomy failed" << RESET << std::endl;
 	
 }

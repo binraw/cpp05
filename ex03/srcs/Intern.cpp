@@ -5,15 +5,19 @@ Intern::Intern()
     std::cout << "Default constructor Intern called" << std::endl;
 }
 
+/*----------------------------------------------------*/
 
 Intern::Intern(const Intern &other)
 {
     *this = other;   
 }
+/*----------------------------------------------------*/
+
 Intern &Intern::operator=(const Intern &other)
 {
     return *this;
 }
+/*----------------------------------------------------*/
 
 
 Intern::~Intern()
@@ -22,21 +26,25 @@ Intern::~Intern()
 }
 
 
+/*-------------- FONCTIONS --------------------------*/
 
 static AForm *makeFormPresidential(std::string target)
 {
     return (new PresidentialPardonForm(target));
 }
+/*----------------------------------------------------*/
 
 static AForm *makeFormRobotomy(std::string target)
 {
     return (new RobotomyRequestForm(target));
 }
+/*----------------------------------------------------*/
 
 static AForm *makeFormShrubbery(std::string target)
 {
     return (new ShrubberyCreationForm(target));
 }
+/*----------------------------------------------------*/
 
 AForm *Intern::makeForm(std::string name_form, std::string target_form)
 {
@@ -46,11 +54,11 @@ AForm *Intern::makeForm(std::string name_form, std::string target_form)
     {
 	    if (name_form == names[i])
 	    {
-		    std::cout << "Intern creates " << name_form << " now" << std::endl;
+		    std::cout << GREEN << "Intern creates " << names[i] << " now" << RESET << std::endl;
 		    return (all_forms[i](target_form));
 	    }
     }
-    std::cout << "Intern creates " << name_form << std::endl;
+    std::cout << RED << "Intern: Unknown form type '" << name_form << "'." << RESET << std::endl;
 	return (NULL);
 }
 

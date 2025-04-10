@@ -1,45 +1,49 @@
 #include "../headers/RobotomyRequestForm.hpp"
+#include "../headers/colors.hpp"
 
 static int robotomied_success = 0;
-RobotomyRequestForm::RobotomyRequestForm(): AForm("default", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(): AForm("RobotomyRequestForm", 72, 45, "RobotomyRequestForm_default")
 {
     std::cout << "Default constructor Robot called" << std::endl;
 }
+/*----------------------------------------------------*/
 
-
-RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm(target, 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRequestForm", 72, 45, target)
 {
-    std::cout << "Constructor Robot called" << std::endl;
+    std::cout << getTarget() << " Constructor Robot called" << std::endl;
 }
+/*----------------------------------------------------*/
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other)
 {
     *this = other;
 }
+/*----------------------------------------------------*/
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &other)
 {
     return *this;
 }
-
+/*----------------------------------------------------*/
 
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
-    std::cout << "Destructor Robot called" << std::endl;
+    std::cout << getTarget() << " Destructor Robot called" << std::endl;
 }
 
+/*-------------- FONCTIONS --------------------------*/
 void RobotomyRequestForm::execute(Bureaucrat const &executor)
 {
-    if (executor.getGrade() > this->grade_exec)
+    if (executor.getGrade() > this->_grade_exec)
 	{
 	    throw Bureaucrat::GradeTooLowException();	
 	}
-    else if (this->sign)
+    else if (this->_sign)
         throw AForm::FormSignTrue();
     else if (robotomied_success++ % 2)
-		std::cout << "BRRRRRRRRRRRRRR\n" <<  " was robotomized" << std::endl;
+		std::cout << BRIGHT_GREEN << getTarget() << " BRRRRRRRRRRRRRR " <<  " was robotomized" << RESET << std::endl;
     else
-		std::cout << "Robotomy failed" << std::endl;
+		std::cout << BRIGHT_GREEN << getTarget() << " Robotomy failed" << RESET << std::endl;
 	
 }

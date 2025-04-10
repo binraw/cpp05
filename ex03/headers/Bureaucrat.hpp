@@ -9,17 +9,22 @@ class AForm;
 class Bureaucrat 
 {
 public:
+/*----------- CONSTRUCTOR / DESTRUCTOR --------------*/
 	Bureaucrat();
 	Bureaucrat(std::string name, int nb);
 	Bureaucrat(const Bureaucrat &other);
-	Bureaucrat &operator=(const Bureaucrat &other);
 	~Bureaucrat();
+	Bureaucrat &operator=(const Bureaucrat &other);
+/*------------ GETTER -------------------------------*/
 	std::string getName(void) const;
 	int getGrade(void) const;
+/*-------------- FONCTIONS --------------------------*/
 	void incrementGrade(void);
 	void decrementGrade(void);
 	void signAForm(AForm &paper);
 	void executeForm(AForm& form) const;
+
+/*------------------ EXCEPTIONS-----------------------*/
 class GradeTooLowException: public std::exception
 	{
 		virtual const char*	what() const throw();
@@ -30,8 +35,10 @@ class GradeTooHighException: public std::exception
 		virtual const char*	what() const throw();
 	};
 private:
-	std::string const name;
-	int grade;
+/*______________ PRIVATE VALUES______________________*/
+	std::string const _name;
+	int _grade;
+
 };
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureau);

@@ -18,7 +18,7 @@ int main(void)
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << BRIGHT_RED	 << e.what() << RESET << '\n';
 	}
 	try
 	{
@@ -27,17 +27,19 @@ int main(void)
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << BRIGHT_RED	 << e.what() << RESET << '\n';
 	}
 	
 	try
 	{
 		RobotomyRequestForm project("SPACE_X");
 		project.execute(a);
+		std::cout << "Execute robot Again :" << std::endl;
+		project.execute(a);
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << BRIGHT_RED	 << e.what() << RESET << '\n';
 	}
 
 	std::cout << RED << "TEST FAILED -->>" << RESET << std::endl;
@@ -53,7 +55,7 @@ int main(void)
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << BRIGHT_RED	 << e.what() << RESET << '\n';
 	}
 	try
 	{
@@ -62,7 +64,7 @@ int main(void)
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << BRIGHT_RED	 << e.what() << RESET << '\n';
 	}
 	
 	try
@@ -72,7 +74,7 @@ int main(void)
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << BRIGHT_RED	 << e.what() << RESET << '\n';
 	}
 }
 	
