@@ -14,32 +14,35 @@ int main(void)
 	try
 	{
 		ShrubberyCreationForm sapin("Noel");
-		sapin.execute(a);
+		a.executeForm(sapin);
+		// sapin.execute(a);
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << BRIGHT_RED	 << e.what() << RESET << '\n';
+		std::cout << BRIGHT_RED	 << e.what() << RESET << '\n';
 	}
 	try
 	{
 		PresidentialPardonForm document("CONFIDENTIAL");
-		document.execute(a);
+		a.executeForm(document);
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << BRIGHT_RED	 << e.what() << RESET << '\n';
+		std::cout << BRIGHT_RED	 << e.what() << RESET << '\n';
 	}
 	
 	try
 	{
 		RobotomyRequestForm project("SPACE_X");
-		project.execute(a);
+		a.executeForm(project);
+
 		std::cout << "Execute robot Again :" << std::endl;
-		project.execute(a);
+		a.executeForm(project);
+
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << BRIGHT_RED	 << e.what() << RESET << '\n';
+		std::cout << BRIGHT_RED	 << e.what() << RESET << '\n';
 	}
 
 	std::cout << RED << "TEST FAILED -->>" << RESET << std::endl;
@@ -51,30 +54,31 @@ int main(void)
 	try
 	{
 		ShrubberyCreationForm big_tree("BIGGEST");
-		big_tree.execute(c);
+		c.executeForm(big_tree);
+
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << BRIGHT_RED	 << e.what() << RESET << '\n';
+		std::cout << BRIGHT_RED	 << e.what() << RESET << '\n';
 	}
 	try
 	{
 		PresidentialPardonForm conf("BOMBE");
-		conf.execute(c);
+		c.executeForm(conf);
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << BRIGHT_RED	 << e.what() << RESET << '\n';
+		std::cout << BRIGHT_RED	 << e.what() << RESET << '\n';
 	}
 	
 	try
 	{
 		RobotomyRequestForm module("007");
-		module.execute(c);
+		c.executeForm(module);
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << BRIGHT_RED	 << e.what() << RESET << '\n';
+		std::cout << BRIGHT_RED	 << e.what() << RESET << '\n';
 	}
 }
 	

@@ -36,13 +36,11 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor)
 	{
 	    throw Bureaucrat::GradeTooLowException();	
 	}
-	else if (this->_sign)
-        throw AForm::FormSignTrue();
     else 
     {
         std::ofstream file ( this->_target + "_shrubbery");
         if(!file)
-            std::cerr << "Error file" << std::endl;
+            std::cout << "Error file" << std::endl;
         file << "    0    " << std::endl;
         file << "   ***   " << std::endl;
         file << "  *****  " << std::endl;

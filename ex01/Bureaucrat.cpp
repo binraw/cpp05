@@ -72,8 +72,7 @@ void Bureaucrat::signForm(Form &paper)
 {
 	if (this->grade <= paper.getGradeSign() && paper.getStatus() == false)
 	{
-		paper.changeStatus();
-		std::cout << getName() << " signed " << paper.getName() << std::endl;
+		paper.beSigned(this);
 	}
 	else if (paper.getStatus() == true)
 		std::cout << getName() << " couldn't sign " << paper.getName() << " because is already signed." << std::endl;

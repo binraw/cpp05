@@ -39,8 +39,6 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor)
 	{
 	    throw Bureaucrat::GradeTooLowException();	
 	}
-    else if (this->_sign)
-        throw AForm::FormSignTrue();
     else if (robotomied_success++ % 2)
 		std::cout << BRIGHT_GREEN << getTarget() << " BRRRRRRRRRRRRRR " <<  " was robotomized" << RESET << std::endl;
     else

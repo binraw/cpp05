@@ -39,7 +39,7 @@ private:
 	int const grade_sign;
 	bool sign;	
 };
-
+std::ostream &operator<<(std::ostream &os, const Form &form);
 
 
 #endif
